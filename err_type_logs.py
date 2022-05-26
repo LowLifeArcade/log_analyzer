@@ -30,13 +30,13 @@ def get_merged_counts(series, arr=None, amt=10, axis=1):
     return pd.concat(df_arr, axis=axis)
 
 # TODO: Make error array to loop over
-error = ''
+error = "Cannot read properties of undefined "
 params = ['Message', 'Exception', 'LogLevel', 'Host', 'UserId', 'InnerException', 'Flags', 'LogType']
 
-df = get_merged_counts(error, params, 15)
+df = get_merged_counts(error, params, 100)
 
 # TODO: loop over error array to produce logs
 
-# TODO: if error starts with Global then name differently 
-# df.to_excel(f'err_logs/typ_error_log: {error[0:20]}.xlsx')
+# TODO: if error starts with Global then name differently  
+df.to_excel(f'err_logs/error_log: TypeError: {error[0:60]}.xlsx') 
 print(df)
