@@ -66,7 +66,7 @@ def get_merged_counts(series, arr=None, amt=10, axis=1):
 error = "Global uncaught exception: TypeError:"
 params = ['Message', 'Exception', 'LogLevel', 'Host', 'UserId', 'InnerException', 'Flags', 'LogType']
 
-df = get_merged_counts(error, params, 40)
+df = get_merged_counts(error, params, 60)
 
 # df = set_df_by_regex('Global uncaught exception: TypeError')
 # df = get_count_by_message(20)

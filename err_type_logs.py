@@ -4,7 +4,7 @@ import json
 import openpyxl
 from err_functions import get_merged_counts 
 
-df = pd.read_json('data/no_apollo_logs.json')
+df = pd.read_json('data/type_error_logs.json')
 df = df.fillna(value="None")
 
 def set_df_by_message(message):
@@ -30,10 +30,10 @@ def get_merged_counts(series, arr=None, amt=10, axis=1):
     return pd.concat(df_arr, axis=axis)
 
 # TODO: Make error array to loop over
-error = "Cannot read properties of undefined "
+error = "Cannot read properties of undefined"
 params = ['Message', 'Exception', 'LogLevel', 'Host', 'UserId', 'InnerException', 'Flags', 'LogType']
 
-df = get_merged_counts(error, params, 100)
+df = get_merged_counts(error, params, 50)
 
 # TODO: loop over error array to produce logs
 

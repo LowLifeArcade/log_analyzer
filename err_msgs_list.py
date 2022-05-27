@@ -8,7 +8,7 @@ import openpyxl
 # with open('test_logs.json') as f:
 #     json_data = json.load(f)
 
-df = pd.read_json('data/no_apollo_logs.json')
+df = pd.read_json('data/no_apollo_or_type_error_logs.json')
 # df = pd.read_json('{"0":{"Product":"Desktop Computer","Price":700}}')
 # df = pd.read_json('logs/test_logs.json')
 
@@ -62,7 +62,7 @@ def get_merged_counts(series, arr=None, amt=10, axis=1):
 # df = pd.merge()
 # printMe = df['Exception'].value_counts()
 # print(ex['Host'].value_counts())
-df = get_count_by_message(20) 
+df = get_count_by_message(60) 
 # df.to_excel(f'{error}.xlsx')
 df.to_excel('err_lists/error_messages_list.xlsx') 
 print(df)

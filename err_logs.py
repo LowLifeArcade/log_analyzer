@@ -4,7 +4,7 @@ import json
 import openpyxl
 from err_functions import get_merged_counts 
 
-df = pd.read_json('data/no_apollo_logs.json')
+df = pd.read_json('data/no_apollo_or_type_error_logs.json')
 df = df.fillna(value="None")
 
 def set_df_by_message(message):
@@ -28,13 +28,13 @@ def get_merged_counts(series, arr=None, amt=10, axis=1):
             df_arr.append(loc_df[param].value_counts().head(amt))
     return pd.concat(df_arr, axis=axis)
 
-error = ''
+error = r'Comprehensive report'
 params = ['Message', 'Exception', 'LogLevel', 'Host', 'UserId', 'InnerException', 'Flags', 'LogType']
 
-df = get_merged_counts(error,params, 15)
+df = get_merged_counts(error,params, 50)
 
 # TODO: loop over error array to produce logs
 
 # TODO: if error starts with Global then name differently 
-df.to_excel(f'err_logs/error_log: {error[0:20]}.xlsx')
+df.to_excel(f'err_logs/error_log: {error[0:50]}.xlsx')
 print(df)
